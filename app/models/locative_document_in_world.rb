@@ -10,6 +10,13 @@ module LocativeDocumentInWorld
 
     index :_x
     index :_y
+    
+    index(
+      [
+        [ :_x, Mongo::ASCENDING ],
+        [ :_y, Mongo::ASCENDING ]
+      ])
+    
     index [[:location, Mongo::GEO2D], [:world_id, 1]],  {:min => 0, :max => 2000, :bits => 32} 
     
     shard_key :world, :_x, :_y

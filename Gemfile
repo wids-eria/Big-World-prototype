@@ -13,6 +13,9 @@ gem 'bson_ext'
 
 gem 'stalker'
 
+gem 'progressbar', git: 'git://github.com/randland/progressbar'
+
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

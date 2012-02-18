@@ -18,3 +18,12 @@ job 'turtle.tick' do |args|
   turtle.do_tick
   tick_complete_stalk.put(turtle.id)
 end
+
+job 'batch.tick' do |args|
+  turtles = args["turtle_ids"]
+  turtles.each do |t_id|
+    turtle = Turtle.find t_id
+    turtle.do_tick
+    tick_complete_stalk.put(turtle.id)
+  end
+end
