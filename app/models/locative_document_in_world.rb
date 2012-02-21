@@ -2,24 +2,23 @@ module LocativeDocumentInWorld
   extend ActiveSupport::Concern
   
   included do
-    belongs_to :world, index: true
+    belongs_to :world
 
     field :_x, type: Integer
     field :_y, type: Integer
     field :location, type: Array, spacial: true
 
-    index :_x
-    index :_y
     
     index(
       [
+	[ :world_id, Mongo::ASCENDING],
         [ :_x, Mongo::ASCENDING ],
         [ :_y, Mongo::ASCENDING ]
       ])
     
-    index [[:location, Mongo::GEO2D], [:world_id, 1]],  {:min => 0, :max => 2000, :bits => 32} 
+    index [[:location, Mongo::GEO2D], [:world_id, 1]],  {:min => 0, :max => 2000, :bits => 28} 
     
-    shard_key :world, :_x, :_y
+    shard_key :world_id, :_x, :_y
 
     validates_presence_of :world
     validates_presence_of :_x

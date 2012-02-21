@@ -6,7 +6,6 @@ Split_Size = 10.0
 tick_complete_stalk = Beanstalk::Pool.new(['localhost:11300'], 'turtle.tick.complete')
 
 w = World.last
-turtle_count = w.turtles.count
 
 ProgressBar.color_status
 ProgressBar.iter_rate_mode
@@ -43,6 +42,7 @@ def enqueue(turtle_lists)
 end
 
 10.times do |clock|
+  turtle_count = w.turtles.count
   pb = ProgressBar.new("Tick #{clock}", turtle_count)
   #Stalker.enqueue('world.tick', :world_id => w.id)
   enqueue split_turtles_for_world w
