@@ -8,7 +8,7 @@ ProgressBar.iter_rate_mode
 
 pb = ProgressBar.new("Turtle", 20000)
 1000.times do 
-  t = CirclerTurtle.new
+  t = SpacerTurtle.new
   t.world = w
   t.x = rand(w.width)
   t.y = rand(w.height)

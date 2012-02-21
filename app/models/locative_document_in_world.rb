@@ -11,7 +11,7 @@ module LocativeDocumentInWorld
     
     index(
       [
-	[ :world_id, Mongo::ASCENDING],
+        [ :world_id, Mongo::ASCENDING],
         [ :_x, Mongo::ASCENDING ],
         [ :_y, Mongo::ASCENDING ]
       ])
