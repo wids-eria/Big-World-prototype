@@ -1,5 +1,6 @@
 class World
   include Mongoid::Document
+  cache
 
   field :width, type: Integer
   field :height, type: Integer
