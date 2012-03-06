@@ -4,8 +4,11 @@ require 'stalker'
 Split_Size = 10.0
 
 tick_complete_stalk = Beanstalk::Pool.new(['localhost:11300'], 'turtle.tick.complete')
+puts "Complete queue acquired"
 
 w = World.last
+
+puts "Ticking world #{w.id}"
 
 ProgressBar.color_status
 ProgressBar.iter_rate_mode

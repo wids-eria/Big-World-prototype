@@ -15,8 +15,15 @@ class Turtle
     self.x += distance * Math::cos( Turtle.degrees_to_radians self.heading )
     self.y += distance * Math::sin( Turtle.degrees_to_radians self.heading )
     
-    self.x = self.x % self.world.width
-    self.y = self.y % self.world.height
+    world = self.world
+    
+    while self.x > world.width
+      self.x = self.x - world.width
+    end
+    
+    while self.y > world.height
+      self.y = self.y - world.height
+    end
   end
   
   def turn_right(degrees)
